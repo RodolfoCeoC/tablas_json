@@ -1,0 +1,179 @@
+ *, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+} 
+body{
+    font-family: 'Oswald', sans-serif; /* esta es la fuente que usaré*/
+}
+section{ /* Aquii asignamos tamaños y el color base de la pagina */
+    width: 100vw;
+    height: 100vh;
+    padding: 90px;
+    background-color: #cc2986;
+    background-image: linear-gradient(225deg, #cc2986 0%, #351258 33%, #331129 66%, #e90939 100%); /* este será el color de fondo de la página*/
+}
+.contenedor{ /* Este es el recuadro que contiene los datos del login y la imagen */
+    background: linear-gradient(225deg, #fdfdfd 0%, #5349ad 33%, #46045a 66%, #4d0606 100%);
+    /*background: rgba(182, 6, 6, 0.562); /*En la parte de inicio de sesión, le ponemos un fondo transparente */
+    width: 100%;
+    /*border-radius: 3px; */
+    height: 100%;
+    position: relative;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .7);
+    overflow: hidden; 
+    box-shadow: 20px 2px 40px 10px rgb(34, 2, 29); /*colocamos bordes sombreados alrededor del login */
+}
+.contenedor_img{ /* Propiedades del contenedor de la imagen */
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+/*.contenedor_img::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.5;
+
+} */
+
+.contenedor_img imagenes{ /* Otras propiedades que contendrá la imagen */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+}
+.contenedor_contenido{
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedor_error{  /* Será un recuadro que mostrará el error, despues de unos segundos, se oculta automáticamente */
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    background: red;
+    color: white;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all .5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .7);
+}
+.mostrar_error{
+    bottom: 0;
+}
+.contenedor_formulario{
+    width: 55%;
+}
+.contenedor_contenido h2{ /* Aqui irán el estilo de letra de las palabras login y contraseña, así como un borde animado que girará en torno a las letras de "iniciar sesión" */
+    font-size: 20px;
+    font-weight: bold;
+    color: lightgray;
+    font-style:arial;
+    border:10px solid black;
+    text-align: center;
+    padding: .3rem .3rem;
+    min-height: 1rem;
+    resize: both;
+    background: #25022ebd, rgb(34, 2, 29), red;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
+}
+.input{
+    margin-bottom: 20px;
+}
+input span{
+    font-size: 1em;
+    display: inline;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+#usuario{  /* Color y estilo de las letras de "Usuario" */
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#contras{ /* Color y estilo de las letras de "Contraseña" */
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.input input, .input button{
+    width: 100%;
+    padding: 12px 20px;
+    font-weight: 400;
+    border: 1px solid rgb(211, 210, 210);
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: #575f63;
+    background: #f5f4f4;
+    border-radius: 20px;
+
+}
+.input button{
+    background: linear-gradient(to right, #4776E5 0%, #8E54E9 51%, #4776E6 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loader{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    animation: girar .6s linear infinite;
+    display: none;
+}
+@keyframes girar{  /* Animación que tendrá el boton ingresar */
+    from{
+        transform: rotate(0deg);
+
+    }
+    to{
+        transform: rotate(360deg);
+
+    }
+}
+@media screen and (max-width: 768px){
+    section{
+        padding: 10px;
+    }
+    .contenedor_img{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    .contenedor_contenido{
+      width: 100%;
+      height: 100%;  
+      z-index: 3;
+    }
+    .contenedor_formulario{
+        width: 100%;
+        padding: 25px;
+        background: rgba(255, 255, 255, .9);
+    }
+}

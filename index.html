@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!--Con esto indicamos que se use la versión mas reciente de html, en este caso es la 5-->
+<html>
+    <head>
+        <meta charset="UTF-8"> <!--s-->
+        <title>Login</title>
+        <link rel="stylesheet" href="estilos.css"> <!--Usaremos css, este irá en una pestaña aparte-->
+        <meta name= viewport content= width=device-width initial-scale=1.0>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Fuente que utilizaré-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--fuente que utilizaré-->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet"> <!--fuente que utilizaré-->
+        <script src="script.js" defer></script> <!--El javascript al igual que el css, estará en otra ventana-->
+    </head>
+    <body>
+        <div1 class="box1"></div1>
+  <div2 class="box1"></div2>
+        <section>
+            <div class="contenedor">
+                <div class="contenedor_contenido">
+                    <div class="contenedor_formulario">
+                        <h2>Iniciar Sesión</h2> <!--Un texto que mostrará que se trata de un inicio de sesión-->
+                        <form id="form_login">
+                            <div class="input">
+                                <span id="usuario">Usuario:</span> <!--Subdivisión que indica que ingresemos un usuario-->
+                                <input type="text" name="" id="" class="usuario" required/> <!--Input que pedirá un usuario-->
+                            </div>
+                            <div class="input">
+                                <span id="contras">Contraseña:</span> <!--Otra subdivisión que nos pide una contraseña-->
+                                <input type="password" name="" id="" class="contrasenia" required/> <!--Input en donde se escribirá la contraseña-->
+                            </div>
+                            <div class="input">
+                                <button type="submit">
+                                  <div class="loader" id="loader"></div>
+                                  <span class="titulo_boton">Ingresar</span>  <!--Boton con el que se validarán los datos-->
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="contenedor_img">
+                    <img src="imagenes/girl.png" alt="" width="100%"> <!--Aquí estará declarada la imagen que usaremos a un lado de los datos de inicio de sesión-->                 
+                </div>
+                <div class="contenedor_error"> <!--En caso de que ingresemos un dato mal, saldrá un mensaje de alerta indicando que los datos son erroneos-->
+                    <p>!Algo salió mal¡ Parece que su usuario o contraseña no son correctos, Intente de nuevo.</p> 
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

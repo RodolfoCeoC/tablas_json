@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Clinica</title>
+	<link rel="stylesheet" href="cssestilo.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="color">
+
+	<!-- Cabecera -->
+	<header class="mylove">
+		<th>
+			<h1 class="presi" id="pres">Presión Arterial</h1>
+		</th>
+	</header>
+
+	<!-- Contenido -->
+
+	<div>
+		<table align="center" class="tablacat">
+			<!--Categoria-->
+			<tr>
+				<th>Categoría</th>
+				<th>Sistólica</th>
+				<th>Diastólica</th>
+				<th>Color</th>
+			</tr>
+			<tr>
+				<td>Normal</td>
+				<td>Menos de 120</td>
+				<td>Menos de 80</td>
+				<td bgcolor="green"></td>
+			</tr>
+
+			<tr>
+				<td>Elevada</td>
+				<td>120-129</td>
+				<td>Menos de 80</td>
+				<td bgcolor="yellow"></td>
+			</tr>
+
+			<tr>
+				<td>Presión Sanguínea Alta Etapa 1</td>
+				<td>130-139</td>
+				<td>80-89</td>
+				<td bgcolor="orange"></td>
+			</tr>
+
+			<tr>
+				<td>Presión Sanguínea Alta Etapa 2</td>
+				<td>140 o más</td>
+				<td>Más de 90</td>
+				<td bgcolor="red"></td>
+			</tr>
+
+			<tr>
+				<td>Crisis Hipertensiva</td>
+				<td>Más de 180</td>
+				<td>Más de 120</td>
+				<td bgcolor="7a1b0c"></td>
+			</tr>
+
+		</table>
+	</div>
+	<br>
+
+	<section class="hola">
+
+		<!--Datos de la base de datos-->
+		<table class="grilla" id="tablajson">
+			<thead>
+				<th>Nombre_Clinica</th>
+				<th>Nombre_Medico</th>
+				<th>Especialidad</th>
+				<th>Num_Paciente</th>
+				<th>Nombre_Paciente</th>
+				<th>Edad</th>
+				<th>Genero</th>
+				<th>Fecha</th>
+				<th>Sistólica_mmHg</th>
+				<th>Diastólica_mmHg</th>
+				<th>Categoría</th>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+
+
+		<!--Script-->
+
+		<script type="text/javascript">
+
+			var hola;
+			var hola1;
+			var hola2;
+			var etapa2;
+
+			function Categoria(Sistolica_mmHg, Diastolica_mmHg) {
+
+				if (Sistolica_mmHg == '120' && Diastolica_mmHg == '80') {
+					hola = "Normal"
+
+					return hola;
+				} else if (Sistolica_mmHg >= '180' && Diastolica_mmHg >= '100') {
+					hola1 = "Crisis hipertensiva"
+
+					return hola1;
+
+				} else if (Sistolica_mmHg >= '140' && Diastolica_mmHg >= '92') {
+
+					etapa2 = "Etapa 2"
+
+					return etapa2;
+
+				} else if (Sistolica_mmHg >= '120' && Diastolica_mmHg >= '80') {
+
+					hola2 = "Elevada"
+
+					return hola2;
+				}
+			}
+
+
+
+
+
+			//Script de las tablas base de datos
+			$(document).ready(function () {
+				var url = "presion.php";
+				$("#tablajson tbody").html("");
+				$.getJSON(url, function (clinica) {
+					$.each(clinica, function (i, clinicas) {
+
+						var newRow =
+							"<tr>"
+							+ "<td>" + clinicas.Nombre_clinica + "</td>"
+							+ "<td>" + clinicas.Nombre_Med + "</td>"
+							+ "<td>" + clinicas.Especialidad + "</td>"
+							+ "<td>" + clinicas.Num_Pac + "</td>"
+							+ "<td>" + clinicas.Nombre_Pac + "</td>"
+							+ "<td>" + clinicas.Edad + "</td>"
+							+ "<td>" + clinicas.Genero + "</td>"
+							+ "<td>" + clinicas.Fecha_ingreso + "</td>"
+							+ "<td>" + clinicas.Sistolica_mmHg + "</td>"
+							+ "<td>" + clinicas.Diastolica_mmHg + "</td>"
+							+ "<td>" + Categoria(clinicas.Sistolica_mmHg, clinicas.Diastolica_mmHg) + "</td>"
+							+ "</tr>";
+						$(newRow).appendTo("#tablajson tbody");
+
+					});
+				});
+			});
+
+		</script>
+
+
+		<script> //Aqui irán las funciones de la condición
+
+		</script>
+
+
+
+		<br>
+	</section>
+
+</body>
+
+</html>
