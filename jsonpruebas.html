@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body class="color">
+<body>
 
 	<!-- Cabecera -->
 	<header class="mylove">
@@ -19,7 +19,7 @@
 
 	<!-- Contenido -->
 
-	<div>
+	<div class="table-responsive">
 		<table align="center" class="tablacat">
 			<!--Categoria-->
 			<tr>
@@ -67,10 +67,11 @@
 	</div>
 	<br>
 
-	<section class="hola">
-
+	<section class="table-responsive">
+       
+		<div style="overflow-x:auto;">
 		<!--Datos de la base de datos-->
-		<table class="grilla" id="tablajson">
+		<table align="center" class="grilla" id="tablajson">
 			<thead>
 				<th>Nombre_Clinica</th>
 				<th>Nombre_Medico</th>
@@ -86,6 +87,8 @@
 			</thead>
 			<tbody></tbody>
 		</table>
+
+	</div>
 
 
 

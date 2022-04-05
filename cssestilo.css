@@ -1,11 +1,18 @@
+body{
+    background: linear-gradient(90deg, rgba(92,93,45,1) 1%, rgba(52,3,3,1) 15%, rgba(20,4,64,1) 39%, rgba(78,6,72,1) 50%, rgba(2,0,36,1) 61%, rgba(121,9,92,1) 74%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
 
 .grilla {
     background-color: #fff;
     margin: 5px 0 10px 0; 
     border: solid 5px rgb(10, 146, 78);
     border-radius: 2px;
-    box-shadow: 20px 2px 40px 10px rgb(34, 2, 29);
-    border-collapse:collapse;
+    border-collapse:collapse;  
 }
 .grilla td,th { 
     padding: 15px;
@@ -18,20 +25,19 @@
     color: rgb(218, 204, 199);
 }
 
-.color{
-    background: linear-gradient(90deg, rgba(92,93,45,1) 1%, rgba(52,3,3,1) 15%, rgba(20,4,64,1) 39%, rgba(78,6,72,1) 50%, rgba(2,0,36,1) 61%, rgba(121,9,92,1) 74%, rgba(0,212,255,1) 100%);
-}
-
 .tablacat{
     border: solid 5px rgb(29, 8, 219);
     text-align: center;
     margin: 0 auto;
+    
 }
 .tablacat td, th{
     border-radius: 3px;
     padding: 7px;
     border: solid 1.5px rgb(0, 0, 0);
+
 }
+
 
 tr:nth-child(odd)		{ background-color:#eee; }
 tr:nth-child(even)		{ background-color:#fff; }
